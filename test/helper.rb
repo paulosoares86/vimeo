@@ -30,5 +30,14 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'vimeo'
 
+require 'yaml'
+SecretsFile = File.join(File.dirname(__FILE__), 'config', 'secrets.yml')
+ACCESS_TOKEN = YAML.load_file(::SecretsFile)["access_token"]
+if ACCESS_TOKEN == 'YOURACCESSTOKENHERE'
+  $stderr.puts "ERROR: Please put your access token into #{SecretsFile} to run tests"
+  exit 1
+end
+
 class Test::Unit::TestCase
+  ACCESS_TOKEN = ::ACCESS_TOKEN
 end
