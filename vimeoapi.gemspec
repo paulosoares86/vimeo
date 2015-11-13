@@ -34,7 +34,8 @@ Gem::Specification.new do |s|
     "test/files/mov_bbb.mp4",
     "test/helper.rb",
     "test/test_basic.rb",
-    "vimeo.gemspec"
+    "vimeo.gemspec",
+    "vimeoapi.gemspec"
   ]
   s.homepage = "http://github.com/paulosoares86/vimeo"
   s.licenses = ["MIT"]
