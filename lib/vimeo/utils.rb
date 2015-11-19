@@ -1,17 +1,11 @@
+require 'streamio-ffmpeg'
+
 module Vimeo
   class Utils
 
     def self.insert_logo(file_path, logo_path, new_file_path = nil)
-
-      unless File.exist?(file_path)
-        exception_msg = "Cannot add logo to video because path does not exist: #{file_path}"
-        raise Exception, exception_msg
-      end
-
-      unless File.exist?(logo_path)
-        exception_msg = "Cannot add logo to video because path does not exist: #{logo_path}"
-        raise Exception, exception_msg
-      end
+      check_file_exists(file_path, :video)
+      check_file_exists(logo_path, :logo_image)
 
       new_file_path ||= file_with_logo_path(file_path)
       File.remove(new_file_path) if File.exist?(new_file_path)
@@ -20,7 +14,19 @@ module Vimeo
       new_file_path
     end
 
+    def self.duration(file)
+      check_file_exists(file, :video)
+      movie = FFMPEG::Movie.new(file)
+      movie.duration
+    end
+
     private
+
+      def self.check_file_exists(file_path, type)
+        unless File.exist?(file_path)
+          raise FileNotFound, "#{type.to_s.capitalize} file does not exist: #{file_path}"
+        end
+      end
 
       def self.file_with_logo_path(path)
         if path =~ /(\.\w{3,4})$/

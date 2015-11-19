@@ -1,5 +1,6 @@
 require "vimeo/base"
 require "vimeo/utils"
+require "vimeo/exceptions"
 
 module Vimeo
 
@@ -8,5 +9,5 @@ module Vimeo
       post('/me/videos', options)
     end
   end
-  
+
 end

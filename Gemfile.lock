@@ -70,6 +70,7 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
+    streamio-ffmpeg (1.0.0)
     test-unit (3.1.5)
       power_assert
     thread_safe (0.3.5)
@@ -87,6 +88,7 @@ DEPENDENCIES
   rdoc (~> 3.12)
   shoulda
   simplecov
+  streamio-ffmpeg (~> 1.0.0)
   test-unit
 
 BUNDLED WITH

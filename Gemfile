@@ -16,3 +16,4 @@ group :development do
 end
 
 gem "httparty", "~> 0.13.7"
+gem "streamio-ffmpeg", "~> 1.0.0"

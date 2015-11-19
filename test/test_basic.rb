@@ -39,4 +39,7 @@ class TestVimeo < Test::Unit::TestCase
     File.delete(@new_video_path)
   end
 
+  should "check size of video" do
+    assert_equal 10.03, Vimeo::Utils.duration(@old_video_path)
+  end
 end
