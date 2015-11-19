@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["\u{201c}Paulo"]
-  s.date = "2015-11-13"
+  s.date = "2015-11-19"
   s.description = "Ruby wrapper to Vimeo REST Api with some video utilities"
   s.email = "\u{201c}phsoares.ita@gmail.com\u{201d}"
   s.extra_rdoc_files = [
@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/vimeo.rb",
     "lib/vimeo/base.rb",
+    "lib/vimeo/exceptions.rb",
     "lib/vimeo/utils.rb",
     "test/config/secrets.yml",
     "test/files/logo.png",
@@ -47,6 +48,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<httparty>, ["~> 0.13.7"])
+      s.add_runtime_dependency(%q<streamio-ffmpeg>, ["~> 1.0.0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
@@ -56,6 +58,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<byebug>, [">= 0"])
     else
       s.add_dependency(%q<httparty>, ["~> 0.13.7"])
+      s.add_dependency(%q<streamio-ffmpeg>, ["~> 1.0.0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
@@ -66,6 +69,7 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<httparty>, ["~> 0.13.7"])
+    s.add_dependency(%q<streamio-ffmpeg>, ["~> 1.0.0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
